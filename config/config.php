@@ -6,5 +6,5 @@ return [
      * livewire
      * components
      */
-    'use_method' => 'livewire'
+    'use_method' => 'components'
 ];
