@@ -47,6 +47,9 @@ class Builder
      */
     private $method;
 
+    /** @var array $config */
+    private $config;
+
     /**
      * make
      *
@@ -115,7 +118,7 @@ class Builder
                 return new $form;
             }
         }
-    } // End function getForm
+    }
 
     /**
      * Setter for DefaultValue
@@ -128,6 +131,23 @@ class Builder
         $this->value = $value;
 
         return $this;
+    }
+
+    /**
+     * @param array $config
+     * @return $this
+     */
+    public function setConfig(array $config)
+    {
+        $this->config = $config;
+
+        return $this;
+    }
+
+    /** @return array  */
+    public function getConfig()
+    {
+        return $this->config;
     }
 
     /**
@@ -151,6 +171,7 @@ class Builder
     {
         $builder = $form
             ->setDefaultValue($this->getDefaultValue())
+            ->setConfig($this->getConfig())
             ->setRoute($this->route, $this->method)
             ->setButton($form->buttons())
             ->setValidation($form->validations())

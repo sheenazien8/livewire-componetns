@@ -11,17 +11,26 @@ use Sheenazien8\LivewireComponents\Contracts\ComponentContract;
  */
 abstract class ComponentAbstracts implements ComponentContract
 {
+    /* @var string $route */
     private $route;
 
+    /* @var string $method */
     private $method;
 
+    /* @var array $schema */
     private $schema;
 
+    /* @var array $validation */
     private $validation;
 
+    /* @var array $button */
     private $button;
 
+    /* @var Object $value */
     protected $value;
+
+    /* @var array $config */
+    protected $config;
 
     /**
      * builder
@@ -195,6 +204,21 @@ abstract class ComponentAbstracts implements ComponentContract
     }
 
     /**
+     * @param array $config
+     * @return $this
+     */
+    public function setConfig(array $config)
+    {
+        $this->config = $config;
+        return $this;
+    }
+
+    protected function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
      * build
      *
      * @access public
@@ -203,6 +227,7 @@ abstract class ComponentAbstracts implements ComponentContract
     public function build(): array
     {
         return [
+            'config' => $this->getConfig(),
             'route' => $this->getRoute(),
             'method' => $this->getMethod(),
             'schema' => $this->getSchema(),
