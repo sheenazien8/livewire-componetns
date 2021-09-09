@@ -1,5 +1,5 @@
 <div>
-  <form action="{{ $route }}" method="POST" enctype="{{ $config['enctype'] }}">
+  <form action="{{ $route }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method($method)
     @foreach ($schema as $key => $row)

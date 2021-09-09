@@ -204,10 +204,10 @@ abstract class ComponentAbstracts implements ComponentContract
     }
 
     /**
-     * @param array $config
+     * @param null|array $config
      * @return $this
      */
-    public function setConfig(array $config)
+    public function setConfig(?array $config)
     {
         $this->config = $config;
         return $this;
